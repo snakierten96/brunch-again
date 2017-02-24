@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { APP_COMPONENTS } from './components';
+import { LineupActions, TableActions } from './actions';
+import { PartyService } from './services';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,11 @@ import { APP_COMPONENTS } from './components';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    LineupActions,
+    TableActions,
+    PartyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
