@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { AppRoutingModule } from './app-routing.module';
+import { NgReduxModule } from '@angular-redux/store';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { APP_COMPONENTS } from './components';
 import { LineupActions, TableActions } from './actions';
@@ -18,6 +19,7 @@ import { PartyService } from './services';
     BrowserModule,
     FormsModule,
     HttpModule,
+    NgReduxModule,
     AppRoutingModule
   ],
   providers: [
