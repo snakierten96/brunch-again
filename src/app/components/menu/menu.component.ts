@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, ChangeDetectionStrategy,
+  EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-menu',
+  selector: 'tb-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class MenuComponent {
+  @Input() menuItems: any;
+  @Input() tableId: any;
+  @Input() currentOrder: any;
+  @Output() itemAdded: EventEmitter<any> = new EventEmitter<any>();
+  @Output() itemRemoved: EventEmitter<any> = new EventEmitter<any>();
 }
