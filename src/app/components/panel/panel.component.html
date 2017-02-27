@@ -1,13 +1,15 @@
 <md-card>
+  <md-card-header>
+    <md-card-title>
+      <ng-content select="header"></ng-content>  
+    </md-card-title>
+  </md-card-header>
 
-  <div class="p2 bold white bg-blue">
-    <ng-content select="header"></ng-content>
-
-  </div>
-  <div class="p2">
+  <md-card-content>
     <ng-content></ng-content>
-  </div>
-  <div class="p2 bg-silver">
+  </md-card-content>
+
+  <md-card-footer>
     <ng-content select="footer"></ng-content>
-  </div>
+  </md-card-footer>
 </md-card>
