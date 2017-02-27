@@ -15,7 +15,7 @@
         </template>
       </select>
 
-      <button
+      <button md-raised-button color="accent"
         [disabled]="curTable.value.partyId == '-1'"
         type="button"
         (click)="seatParty.emit({ partyId:curTable.value.partyId, tableId: table.id })">
