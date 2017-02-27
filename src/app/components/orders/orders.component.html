@@ -1,0 +1,40 @@
+<div>
+  Table: {{order.get('id')}}
+  <button md-raised-button color="primary" type="button" 
+  (click)="deliverOrder.emit(order.get('id'))">Deliver Order</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Qty</th>
+        <th>Total</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of order.order">
+        <td>
+          {{ item.get('description') }}
+        </td>
+        <td>
+          {{ item.get('qty') }}
+        </td>
+        <td>
+          {{ item.get('total') }}
+        </td>
+        <td>
+          <button
+            type="button" md-icon-button color="primary"
+            (click)="itemAdded.emit({ tableId: order.get('id'), menuId: item.get('menuId') })">
+            <md-icon>add_circle</md-icon>
+          </button>
+          <button
+            type="button" md-icon-button color="primary"
+            (click)="itemRemoved.emit({tableId: order.get('id'), menuId: item.get('menuId') })">
+            <md-icon>remove_circle</md-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

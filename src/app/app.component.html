@@ -10,7 +10,7 @@
   </md-toolbar>
 
   <div fxLayout="column" style="padding: 5px">
-    <div fxLayout="row" fxLayoutGap="5px">
+    <div fxLayout="row" fxFlex="66" fxLayoutGap="5px">
       <div fxFlex="33">
         <tb-lineup
           [lineup]="lineup$ | async"
@@ -72,44 +72,44 @@
         </div>
       </div>
     </div>
-    <!--
-    <div class="col col-5 m2">
-      <tb-panel>
-        <header>
-          Pending Orders
-        </header>
-          <tb-orders 
-            *ngFor="let tableOrder of placedOrders$ | async" 
-          [order]="tableOrder"
-          (itemAdded)="_tableActions.addItemToOrder($event)" 
-          (itemRemoved)="_tableActions.removeItemFromOrder($event)"
-          (deliverOrder)="_tableActions.deliverOrder($event)">
-        </tb-orders>
-      </tb-panel>
+    
+    <div fxLayout="row" fxFlex="33">
+      <div fxFlex="50">
+        <tb-panel>
+          <header>
+            Pending Orders
+          </header>
+            <tb-orders 
+              *ngFor="let tableOrder of placedOrders$ | async" 
+            [order]="tableOrder"
+            (itemAdded)="_tableActions.addItemToOrder($event)" 
+            (itemRemoved)="_tableActions.removeItemFromOrder($event)"
+            (deliverOrder)="_tableActions.deliverOrder($event)">
+          </tb-orders>
+        </tb-panel>
+      </div>
+      <div fxFlex="50">
+        <tb-panel>
+          <header>Inventory</header>
+          <table>
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Stock</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let menuItem of menu$ | async">
+                <td>{{ menuItem.description }}</td>
+                <td>{{ menuItem.price }}</td>
+                <td>{{ menuItem.stock }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </tb-panel>
+      </div>
     </div>
-
-    <div class="col col-5 m2">
-      <tb-panel>
-        <header>Inventory</header>
-        <table>
-          <thead>
-            <tr>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Stock</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let menuItem of menu$ | async">
-              <td>{{ menuItem.description }}</td>
-              <td>{{ menuItem.price }}</td>
-              <td>{{ menuItem.stock }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </tb-panel>
-    </div>
-    -->
   </div>
 
 </md-sidenav-container>
