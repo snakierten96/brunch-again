@@ -1,6 +1,6 @@
 <div>
-  Table: {{order.get('id')}}
-  <button md-raised-button color="primary" type="button" 
+  <span fxFlex="66">Table: {{order.get('id')}}</span>
+  <button md-raised-button fxFlex="33" color="primary" type="button" 
   (click)="deliverOrder.emit(order.get('id'))">Deliver Order</button>
   <table>
     <thead>

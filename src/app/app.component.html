@@ -19,7 +19,7 @@
         </tb-lineup>
       </div>
       <div fxFlex="66">
-        <div fxLayoutWrap="wrap">
+        <div id="dining" fxLayoutWrap="wrap">
           <div fxFlex="50" *ngFor="let table of tables$ | async">
             <tb-table 
               [table]="table" 
