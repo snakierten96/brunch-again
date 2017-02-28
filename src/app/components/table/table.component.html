@@ -3,9 +3,9 @@
     Table Number: {{ table.id }}, # Of Seats {{ table.numberOfSeats }} - {{ table.status }}
   </header>
   <ng-content></ng-content>
-  <footer *ngIf="table.status === 'CLEAN'">
+  <div *ngIf="table.status === 'CLEAN'">
     <form #curTable="ngForm">
-      <md-select name="partyId" [(ngModel)]="partyId">
+      <md-select name="partyId" mdTooltip="Select Party" [(ngModel)]="partyId">
         <md-option [value]="-1">--Select Party--</md-option>
         <template ngFor let-party [ngForOf]="parties | async">
           <md-option [value]="party.partyId"
@@ -22,6 +22,6 @@
         Seat
       </button>
     </form>
-  </footer>
+  </div>
 
 </tb-panel>
