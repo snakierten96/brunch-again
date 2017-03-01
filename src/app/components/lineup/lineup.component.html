@@ -24,18 +24,22 @@
 
         <tr ngForm #party="ngForm">
           <td>
-            <input
-              name="numberOfPeople"
-              type="number"
-              ngModel
-              placeholder="Number of People">
+            <md-input-container>
+              <input mdInput
+                name="numberOfPeople"
+                type="number"
+                ngModel
+                placeholder="Number of People">
+            </md-input-container>
           </td>
           <td>
-            <input
-              name="partyName"
-              type="text"
-              ngModel
-              placeholder="Party Name">
+            <md-input-container>
+              <input mdInput
+                name="partyName"
+                type="text"
+                ngModel
+                placeholder="Party Name">
+            </md-input-container>
           </td>
           <td>
             <button md-raised-button color="accent"
