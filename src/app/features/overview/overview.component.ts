@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { select } from '@angular-redux/store';
-import { IAppState, IParty, ITables, IMenu,
-  rootReducer, middleware, enhancers, reimmutify} from '../../store';
+import { IAppState, IParty, ITables, IMenu } from '../../store';
 import { Observable } from 'rxjs';
 import { LineupActions, TableActions } from '../../actions';
 import { placedOrders } from '../../selectors';
