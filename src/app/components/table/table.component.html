@@ -18,6 +18,7 @@
       <button md-raised-button color="primary"
         [disabled]="curTable.value.partyId == '-1'"
         type="button"
+        mdTooltip="Seat party for service"
         (click)="seatParty.emit({ partyId: curTable.value.partyId, tableId: table.id })">
         Seat
       </button>
