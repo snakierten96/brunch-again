@@ -15,7 +15,8 @@
           <td>{{ party.partyName }}</td>
           <td>
             <button md-icon-button color="warn"
-              type="button" 
+              type="button"
+              mdTooltip="Remove Party"
               (click)="partyLeft.emit({ partyId: party.partyId })">
               <md-icon>close</md-icon>
             </button>
