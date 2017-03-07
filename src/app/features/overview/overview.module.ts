@@ -6,10 +6,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { OverviewComponent } from './overview.component';
 import { OverviewRoutingModule } from './overview-routing.module';
-import { APP_COMPONENTS } from '../components';
+import { APP_COMPONENTS } from '../../components';
 
-import { LineupActions, TableActions } from '../actions';
-import { PartyService } from '../services';
+import { LineupActions, TableActions } from '../../actions';
+import { PartyService } from '../../services';
 
 @NgModule({
   declarations: [

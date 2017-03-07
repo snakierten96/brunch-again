@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { select } from '@angular-redux/store';
 import { IAppState, IParty, ITables, IMenu,
-  rootReducer, middleware, enhancers, reimmutify} from '../store';
+  rootReducer, middleware, enhancers, reimmutify} from '../../store';
 import { Observable } from 'rxjs';
-import { LineupActions, TableActions } from '../actions';
-import { placedOrders } from '../selectors';
+import { LineupActions, TableActions } from '../../actions';
+import { placedOrders } from '../../selectors';
 
 @Component({
   selector: 'tb-overview',

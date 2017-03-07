@@ -9,7 +9,7 @@ import { NgReduxModule } from '@angular-redux/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { OverviewModule } from './overview';
+import { STATIC_FEATURES } from './features';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { OverviewModule } from './overview';
     FlexLayoutModule,
     NgReduxModule,
     AppRoutingModule,
-    OverviewModule
+    ...STATIC_FEATURES
   ],
   providers: [ ],
   bootstrap: [AppComponent]
