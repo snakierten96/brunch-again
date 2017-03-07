@@ -8,14 +8,12 @@ import { NgReduxModule } from '@angular-redux/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { APP_COMPONENTS } from './components';
-import { LineupActions, TableActions } from './actions';
-import { PartyService } from './services';
+
+import { OverviewModule } from './overview';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ...APP_COMPONENTS
   ],
   imports: [
     BrowserModule,
@@ -24,13 +22,10 @@ import { PartyService } from './services';
     MaterialModule.forRoot(),
     FlexLayoutModule,
     NgReduxModule,
-    AppRoutingModule
+    AppRoutingModule,
+    OverviewModule
   ],
-  providers: [
-    LineupActions,
-    TableActions,
-    PartyService
-  ],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
