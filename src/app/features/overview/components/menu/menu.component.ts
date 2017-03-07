@@ -4,7 +4,8 @@ import { Component, Input, Output, ChangeDetectionStrategy,
 @Component({
   selector: 'tb-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenuComponent {
   @Input() menuItems: any;

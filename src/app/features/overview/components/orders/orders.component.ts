@@ -3,7 +3,8 @@ import { Component, Input, Output, EventEmitter,
 @Component({
   selector: 'tb-orders',
   templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss']
+  styleUrls: ['./orders.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OrdersComponent {
   @Input() order: any;

@@ -1,12 +1,13 @@
 import { Component, Input, Output, ChangeDetectionStrategy,
   EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IParty } from '../../store';
+import { IParty } from '../../../../store';
 
 @Component({
   selector: 'tb-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  styleUrls: ['./table.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TableComponent {
   @Input() table: any;
