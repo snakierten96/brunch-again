@@ -1,3 +1,14 @@
-<p>
-  dashboard works!
-</p>
+<div fxLayout="column">
+  <md-grid-list cols="4" rowHeight="200px">
+    <md-grid-tile
+      *ngFor="let tile of tiles"
+      [colspan]="tile.cols"
+      [rowspan]="tile.rows"
+      [style.background]="tile.color">
+      {{ tile.text }}
+      <md-grid-tile-footer>
+        {{ tile.text }}
+      </md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
+</div>
