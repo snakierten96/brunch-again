@@ -10,11 +10,9 @@ export const NAVITEMS: INavItem[] = [
     icon: 'home',
     path: ['/']
   },
-  /*
   {
     name: 'Dashboard',
     icon: 'pie_chart',
     path: ['/dashboard']
   }
-  */
 ];

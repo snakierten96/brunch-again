@@ -1,9 +1,12 @@
 import { OverviewModule } from './overview';
+import { DashboardModule } from './dashboard';
 
 export {
-  OverviewModule
+  OverviewModule,
+  DashboardModule
 };
 
 export const STATIC_FEATURES = [
-  OverviewModule
+  OverviewModule,
+  DashboardModule
 ];
