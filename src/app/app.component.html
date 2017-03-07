@@ -11,63 +11,59 @@
 
   <div id="container" fxLayout="column" fxLayoutGap="5px">
     <div fxLayout="row" fxFlex="50" fxLayoutGap="5px">
-      <div fxFlex="33" fxLayoutGap="5px">
-        <tb-lineup
-          [lineup]="lineup$ | async"
-          (partyJoined)="_lineupActions.joinLine($event)"
-          (partyLeft)="_lineupActions.leaveLine($event)">
-        </tb-lineup>
-      </div>
+      <tb-lineup fxFlex="33" fxLayoutGap="5px"
+        [lineup]="lineup$ | async"
+        (partyJoined)="_lineupActions.joinLine($event)"
+        (partyLeft)="_lineupActions.leaveLine($event)">
+      </tb-lineup>
       <div id="dining" fxFlex="66" fxLayoutWrap="wrap">
-        <div fxFlex="50" *ngFor="let table of tables$ | async">
-          <tb-table 
-            [table]="table" 
-            [parties]="lineup$" 
-            (seatParty)="_tableActions.seatParty($event)">
-    
+        <tb-table fxFlex="50" *ngFor="let table of tables$ | async"
+          [table]="table" 
+          [parties]="lineup$" 
+          (seatParty)="_tableActions.seatParty($event)">
+  
+          <button md-raised-button color="primary"
+            *ngIf="table.status === 'OCCUPIED'"
+              type="button" 
+              (click)="_tableActions.startOrder(table.id)">
+              Start Order
+          </button>
+  
+          <button md-raised-button color="primary"
+            *ngIf="table.status === 'ORDERED'" type="button"
+            (click)="_tableActions.deliverOrder(table.id)">
+            Deliver
+          </button>
+  
+          <button md-raised-button color="primary"
+            *ngIf="table.status === 'HAS_FOOD'" type="button" 
+            (click)="_tableActions.payBill(table.id)">
+            Pay Bill
+          </button>
+  
+          <button md-raised-button color="primary"
+            *ngIf="table.status === 'DIRTY'" type="button" 
+            (click)="_tableActions.cleanTable(table.id)">
+            Clean Table
+          </button>
+  
+          <template [ngIf]="table.status === 'ORDERING'">
+            <tb-menu
+              *ngIf="table.status === 'ORDERING'" 
+              [menuItems]="menu$ | async" 
+              [tableId]="table.id" 
+              [currentOrder]="table.order"
+              (itemAdded)="_tableActions.addItemToOrder($event)" 
+              (itemRemoved)="_tableActions.removeItemFromOrder($event)">
+            </tb-menu>
+  
             <button md-raised-button color="primary"
-              *ngIf="table.status === 'OCCUPIED'"
-                type="button" 
-                (click)="_tableActions.startOrder(table.id)">
-                Start Order
+              type="button"
+              (click)="_tableActions.completeOrder(table.id)">
+              Complete Order
             </button>
-    
-            <button md-raised-button color="primary"
-              *ngIf="table.status === 'ORDERED'" type="button"
-              (click)="_tableActions.deliverOrder(table.id)">
-              Deliver
-            </button>
-    
-            <button md-raised-button color="primary"
-              *ngIf="table.status === 'HAS_FOOD'" type="button" 
-              (click)="_tableActions.payBill(table.id)">
-              Pay Bill
-            </button>
-    
-            <button md-raised-button color="primary"
-              *ngIf="table.status === 'DIRTY'" type="button" 
-              (click)="_tableActions.cleanTable(table.id)">
-              Clean Table
-            </button>
-    
-            <template [ngIf]="table.status === 'ORDERING'">
-              <tb-menu
-                *ngIf="table.status === 'ORDERING'" 
-                [menuItems]="menu$ | async" 
-                [tableId]="table.id" 
-                [currentOrder]="table.order"
-                (itemAdded)="_tableActions.addItemToOrder($event)" 
-                (itemRemoved)="_tableActions.removeItemFromOrder($event)">
-              </tb-menu>
-    
-              <button md-raised-button color="primary"
-                type="button"
-                (click)="_tableActions.completeOrder(table.id)">
-                Complete Order
-              </button>
-            </template>
-          </tb-table>
-        </div>
+          </template>
+        </tb-table>
       </div>
     </div>
     
