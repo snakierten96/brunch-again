@@ -1,3 +1,29 @@
+@import '../variables';
+$backcolor: rgba(map-get($app-primary, default),.4);
+$contrast: map-get($app-primary, "default-contrast");
+$foreground: map-get($app-theme, foreground);
+
+md-sidenav {
+
+  md-nav-list {
+
+    min-width: 200px;
+    
+    a.active > div.mat-list-item-content {
+      background: $backcolor;
+      color: $contrast;
+
+      &:hover {
+        background: map-get($app-primary, default);
+      }
+    }
+
+    a:focus {
+      outline: none;
+    }
+  }
+}
+
 #wrapper {
   height: 100vh;
 }

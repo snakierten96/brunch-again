@@ -3,6 +3,8 @@ import { DevToolsExtension, NgRedux } from '@angular-redux/store';
 import { IAppState, IParty, ITables, IMenu,
   rootReducer, middleware, enhancers, reimmutify} from './store';
 
+import { INavItem, NAVITEMS } from './app.navigation';
+
 @Component({
   selector: 'tb-root',
   templateUrl: './app.component.html',
@@ -10,6 +12,8 @@ import { IAppState, IParty, ITables, IMenu,
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
+
+  navItems: INavItem[] = NAVITEMS;
 
   constructor(private _ngRedux: NgRedux<IAppState>,
     private _devtools: DevToolsExtension)
@@ -24,5 +28,5 @@ export class AppComponent {
       tools ? [ ...enhancers, tools ] : enhancers
     );
   }
-  
+
 }
