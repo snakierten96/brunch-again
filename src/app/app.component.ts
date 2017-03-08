@@ -1,4 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MdIconRegistry } from '@angular/material';
 import { DevToolsExtension, NgRedux } from '@angular-redux/store';
 import { IAppState, IParty, ITables, IMenu,
   rootReducer, middleware, enhancers, reimmutify} from './store';
@@ -16,8 +18,15 @@ export class AppComponent {
   navItems: INavItem[] = NAVITEMS;
 
   constructor(private _ngRedux: NgRedux<IAppState>,
-    private _devtools: DevToolsExtension)
+    private _devtools: DevToolsExtension,
+    iconRegistry: MdIconRegistry,
+    sanitizer: DomSanitizer)
   {
+    iconRegistry.addSvgIcon(
+      'burger',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/burger.svg')
+    );
+
     const tools = _devtools.enhancer({
       deserializeState: reimmutify
     });
