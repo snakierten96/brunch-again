@@ -1,6 +1,6 @@
 import { Component, Input, Output, ChangeDetectionStrategy,
   EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 import { IParty } from '../../../../store';
 
 @Component({
