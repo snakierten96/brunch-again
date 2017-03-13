@@ -11,4 +11,8 @@
       </md-grid-tile-footer>
     </md-grid-tile>
   </md-grid-list>
+
+  <div *ngFor="let order of placedOrders$ | async">
+    <pre>{{ order | json }}</pre>
+  </div>
 </div>
